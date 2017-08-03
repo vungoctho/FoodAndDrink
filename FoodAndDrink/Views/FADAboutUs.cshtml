@@ -1,10 +1,59 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ClientDependency.Core.Mvc
+@using FoodAndDrink.NodeModels
 @{
-	Layout = "MasterFAD.cshtml";
+    Layout = "MasterFAD.cshtml";
+    Html.RequiresCss("~/Assets/css/about-us.css");
+    var pageNode = CurrentPage.Site().Children("fADPageAboutUs").First();
+    var page = ((IPublishedContent)pageNode).As<AboutUsPage>();
 }
 
-@* the fun starts here *@
+<div id="fad-about-us">
+    <div class="content">
+        <div class="zerogrid">
+            <div class="row">
+                <div class="col-2-5">
+                    <div class="wrap-col">
+                        <h2>About Us</h2>
+                        <img src="@page.Photo.Url" alt="" class="img_inner">
+                        @Html.Raw(page.AboutFoodAndDrink)
+                    </div>
+                </div>
+                <div class="col-1-5"><div class="wrap-col"><!--empty--></div></div>
+                <div class="col-2-5">
+                    <div class="wrap-col">
+                        <h2>Testimonials</h2>
+                        <ul class="testimo">
+                            <li>
+                                <blockquote>
+                                    Place holder
+                                </blockquote>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-<div id="augen-about-us">
-    About Us
+
+            <div class="col-full">
+                <div class="hor_separator hor1"></div>
+                <h2 class="head1">Our Best Chefs</h2>
+            </div>
+            <div class="clear"></div>
+
+            <div class="row">
+                <div class="chefs">
+                    @foreach (var item in page.Chefs)
+                    {
+                        <div class="col-1-4">
+                            <div class="wrap-col">
+                                <img src="@item.Photo.Url" class="img_inner">
+                                <p class="col1"><a href="#">@item.DisplayName</a></p>@Html.Raw(item.PersonSummary)
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>            
+        </div>
+    </div>
 </div>

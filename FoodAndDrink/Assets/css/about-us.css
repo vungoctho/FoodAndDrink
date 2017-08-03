@@ -1,0 +1,50 @@
+﻿#fad-about-us .content h2 {
+  font-size: 25px;
+  padding-top: 43px;
+  margin-bottom: 19px;
+  color: #5D0400;
+}
+#fad-about-us .content h2 .head1 {
+  padding-top: 28px;
+  font-size: 25px;
+}
+#fad-about-us .hor_separator {
+  background: url(/Assets/vendor/zGourmet/images/hor_separator.png) 0 bottom no-repeat;
+  height: 40px;
+}
+#fad-about-us .hor_separator .hor1 {
+  margin-top: 13px;
+}
+#fad-about-us .chefs {
+  padding-top: 7px;
+}
+#fad-about-us .chefs .img_inner {
+  padding: 10px 4px;
+}
+#fad-about-us .chefs .col1 {
+  font-size: 12px;
+  padding-top: 8px;
+  margin-bottom: 16px;
+}
+#fad-about-us .testimo li {
+  float: left;
+}
+#fad-about-us .testimo li img {
+  float: left;
+  margin-top: -1px;
+  margin-right: 20px;
+}
+#fad-about-us .testimo li .title {
+  font-size: 24px;
+  line-height: 22.9px;
+  font-family: "Times New Roman", Times, serif;
+  color: #e2827e;
+  text-align: center;
+  padding-top: 36px;
+}
+#fad-about-us .testimo .col1 {
+  line-height: 22.9px;
+  margin-bottom: 6px;
+  padding-top: 10px;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFib3V0LXVzLmxlc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsYUFDSSxTQUNJO0VBQ0ksZUFBQTtFQUNBLGlCQUFBO0VBQ0EsbUJBQUE7RUFDQSxjQUFBOztBQU5aLGFBQ0ksU0FDSSxHQU1JO0VBQ0ksaUJBQUE7RUFDQSxlQUFBOztBQVZoQixhQWVJO0VBQ0ksb0ZBQUE7RUFDQSxZQUFBOztBQWpCUixhQWVJLGVBSUk7RUFDSSxnQkFBQTs7QUFwQlosYUF3Qkk7RUFDSSxnQkFBQTs7QUF6QlIsYUF3QkksT0FHSTtFQUNJLGlCQUFBOztBQTVCWixhQXdCSSxPQU9JO0VBQ0ksZUFBQTtFQUNBLGdCQUFBO0VBQ0EsbUJBQUE7O0FBbENaLGFBc0NJLFNBQ0k7RUFDSSxXQUFBOztBQXhDWixhQXNDSSxTQUNJLEdBR0k7RUFDSSxXQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTs7QUE3Q2hCLGFBc0NJLFNBQ0ksR0FTSTtFQUNJLGVBQUE7RUFDQSxtQkFBQTtFQUNBLGFBQWEsK0JBQWI7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTs7QUF0RGhCLGFBc0NJLFNBb0JJO0VBQ0ksbUJBQUE7RUFDQSxrQkFBQTtFQUNBLGlCQUFBIiwiZmlsZSI6InVuZGVmaW5lZCJ9 */

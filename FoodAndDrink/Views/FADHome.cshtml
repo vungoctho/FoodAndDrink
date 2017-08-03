@@ -3,52 +3,13 @@
 @using FoodAndDrink.NodeModels
 @{
     Layout = "MasterFAD.cshtml";
+
+    Html.RequiresCss("~/Assets/css/home.css");
+    Html.RequiresJs("~/Assets/js/home.js");
+
     var homePageNode = CurrentPage.Site().Children("fADPageHome").First();
-    var homePage = ((IPublishedContent)homePageNode).As<HomePage>();
-    var highlightFoods = homePage.HighlightFoods;
-    var a  = highlightFoods.FirstOrDefault();
+    var homePage = ((IPublishedContent)homePageNode).As<HomePage>();    
 }
-
-<script>
-      $(window).load(function(){
-      $('.slider')._TMS({
-              show:0,
-              pauseOnHover:false,
-              prevBu:'.prev',
-              nextBu:'.next',
-              playBu:false,
-              duration:800,
-              preset:'fade',
-              pagination:true,//'.pagination',true,'<ul></ul>'
-              pagNums:false,
-              slideshow:8000,
-              numStatus:false,
-              banners:false,
-          waitBannerAnimation:false,
-        progressBar:false
-      })
-      });
-
-     $(window).load (
-    function(){$('.carousel1').carouFredSel({auto: false,prev: '.prev',next: '.next', width: 960, items: {
-      visible : {min: 1,
-       max: 4
-},
-height: 'auto',
- width: 240,
-
-    }, responsive: false,
-
-    scroll: 1,
-
-    mousewheel: false,
-
-    swipe: {onMouse: false, onTouch: false}});
-
-
-    });
-
-</script>
 
 <div id="fad-home">
     <div class="slider-relative">
@@ -64,13 +25,13 @@ height: 'auto',
         </div>
     </div>
 
-    <div class="content page1">
+    <div class="content">
         <div class="zerogrid">
             <div class="row">
                 <div class="col-3-5">
                     <div class="wrap-col">
                         <h2>About Food And Drink</h2>
-                        <div class="page1_block col1">
+                        <div class="about_block col1">
                             <div class="col-1-3"><img src="~/Assets/vendor/zGourmet/images/welcome_img.png" alt=""></div>
                             <div class="col-2-3">
                                 <div class="extra_wrapper">

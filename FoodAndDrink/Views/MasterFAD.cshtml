@@ -3,8 +3,8 @@
 @using FoodAndDrink.NodeModels
 @{
     Layout = "Master.cshtml";
-    Html.RequiresCss("~/Assets/css/layout.css");
-    Html.RequiresJs("~/Assets/js/layout.js");
+    Html.RequiresCss("~/Assets/css/fad-common.css");
+    //Html.RequiresJs("~/Assets/js/layout.js");
 
 
     var rootSite = ((IPublishedContent)CurrentPage.Site()).As<Site>();
@@ -15,122 +15,46 @@
 }
 
 
-    <div class="main">
-        <!--==============================header=================================-->
-        <header>
-            <div class="zerogrid">
-                <div class="col-full">
-                    <div class="wrap-col">
-                        <h1><a href="#"><img src="@rootSite.SiteLogo.Url"></a></h1>
-
-                        <div class="menu_block">
-                            @*@Html.Partial("~/Views/Partials/_MenuNav.cshtml")*@
-                            <nav>
-                                <ul class="sf-menu">
-                                    <li class="@(currentUrl == @"/" ? "current": "")">
-                                        <a href="/">Home</a>
-                                    </li>
-                                    @foreach (var item in menus)
-                                    {
-                                        var text = string.IsNullOrEmpty(item.menuText) ? item.Name : item.menuText;
-                                        var activeClass = (item.Url == currentUrl) ? "current" : "";
-                                        <li class="@activeClass">
-                                            <a href="@item.Url">@text</a>
-                                        </li>
-                                    }
-                                </ul>
-                            </nav>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div id="fad-container">
-            @RenderBody()
-        </div>
-       
-        <!--=======content================================-->
-
-        
-    </div>
-    <!--==============================footer=================================-->
-
-    <footer>
+<div class="main" id="main">
+    <!--==============================header=================================-->
+    <header>
         <div class="zerogrid">
             <div class="col-full">
                 <div class="wrap-col">
-                    Gourmet © 2013  &nbsp;&nbsp; |&nbsp;&nbsp;   <a href="#">Privacy Policy</a>    &nbsp;&nbsp;|&nbsp;&nbsp;  Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster</a> - <a href="https://www.zerotheme.com/" title="free website templates">Zerotheme</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+                    <h1><a href="#"><img src="@rootSite.SiteLogo.Url"></a></h1>
 
-
-
-@*<header>
-    <div class="zerogrid">
-        <div class="col-full">
-            <div class="wrap-col">
-                <h1><a href="index.html"><img src="images/logo.png" alt="EXTERIOR"></a> </h1>
-
-                <div class="menu_block">
-                    <nav>
-                        <ul class="sf-menu">
-                            <li class="current"><a href="index.html">Home</a></li>
-                            <li class="with_ul">
-                                <a href="index-1.html">About Us</a>
-                                <ul>
-                                    <li><a href="#"> cuisine</a></li>
-                                    <li><a href="#">Good rest</a></li>
-                                    <li><a href="#">Services</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="index-2.html">Menu</a></li>
-                            <li><a href="index-3.html">Portfolio</a></li>
-                            <li><a href="index-4.html">News </a></li>
-                            <li><a href="index-5.html">Contacts</a></li>
-                        </ul>
-                    </nav>
+                    <div class="menu_block">
+                        @*@Html.Partial("~/Views/Partials/_MenuNav.cshtml")*@
+                        <nav>
+                            <ul class="sf-menu">
+                                <li class="@(currentUrl == @"/" ? "current": "")">
+                                    <a href="/">Home</a>
+                                </li>
+                                @foreach (var item in menus)
+                                {
+                                    var text = string.IsNullOrEmpty(item.menuText) ? item.Name : item.menuText;
+                                    var activeClass = (item.Url == currentUrl) ? "current" : "";
+                                    <li class="@activeClass">
+                                        <a href="@item.Url">@text</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                        <div class="clear"></div>
+                    </div>
                     <div class="clear"></div>
                 </div>
-                <div class="clear"></div>
             </div>
         </div>
+    </header>
+
+    <div id="fad-container">
+        @RenderBody()
     </div>
-</header>*@
-    @*<div id="fad-nav">
-        <div id="fad-topnav-full" class="show-for-large-up">
-            <div class="contain-to-grid">
-                <div class="fad-inner-container">
-                    <nav class="top-bar" data-topbar="" role="navigation">
-                        
-                        <a class="logo" href="/">
-                            <img alt="Food And Drink" src="@rootSite.SiteLogoUrl" title="Food And Drink">
-                        </a>
-                        @Html.Partial("~/Views/Partials/_MenuNav.cshtml")
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <div id="fad-topnav-compact" class="hide-for-large-up">
-            <nav class="top-bar" data-topbar role="navigation">
-                <ul class="title-area">
-                    <li class="name">
-                        <a class="logo" href="#">
-                            <img alt="Food And Drink" src="@rootSite.SiteLogoUrl" title="Food And Drink">
-                        </a>
-                    </li>                    
-                    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-                </ul>
-                @Html.Partial("~/Views/Partials/_MenuNav.cshtml")
-            </nav>
-        </div>
-    </div>*@
-    
-@*<footer>
+</div>
+
+<!--==============================footer=================================-->
+<footer>
     <div class="zerogrid">
         <div class="col-full">
             <div class="wrap-col">
@@ -138,30 +62,4 @@
             </div>
         </div>
     </div>
-</footer>*@
-    @*<div id="fad-footer">
-        <div id="fad-footer-full" class="show-for-large-up">
-            <div class="fad-inner-container">                
-                <div class="top-section row">
-                    <div class="large-3 columns">
-                        <img alt="Food And Drink" src="@rootSite.SiteLogoFooterUrl" title="Food And Drink">
-                    </div>
-                </div>
-                <div class="bottom-section clearfix">
-                    <div class="brand">Food And Drink &copy; 2017 - @DateTime.Now.Year</div>
-                    <div class="menu">
-                        <ul class="clearfix">
-                            <li><a href="/privacy-policy" class="first">Privacy policy</a></li>
-                            <li><a href="/disclaimer" class="">Disclaimer</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="fad-footer-compact" class="hide-for-large-up">
-            <ul class="right">
-                <li class=""><a href="/privacy-policy">Privacy policy</a></li>
-                <li class=""><a href="/disclaimer">Disclaimer</a></li>
-            </ul>
-        </div>
-    </div>*@
+</footer>

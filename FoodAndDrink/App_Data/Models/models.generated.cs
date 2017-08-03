@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f838d1a3f2c8a551")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "e2328a4b0351c4ab")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -221,6 +221,24 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// About Food And Drink
+		///</summary>
+		[ImplementPropertyType("aboutFoodAndDrink")]
+		public IHtmlString AboutFoodAndDrink
+		{
+			get { return this.GetPropertyValue<IHtmlString>("aboutFoodAndDrink"); }
+		}
+
+		///<summary>
+		/// Photo
+		///</summary>
+		[ImplementPropertyType("photo")]
+		public IPublishedContent Photo
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("photo"); }
+		}
+
+		///<summary>
 		/// Footer Show
 		///</summary>
 		[ImplementPropertyType("footerShow")]
@@ -369,6 +387,59 @@ namespace Umbraco.Web.PublishedContentModels
 		public int Price
 		{
 			get { return this.GetPropertyValue<int>("price"); }
+		}
+	}
+
+	/// <summary>FAD About Chef</summary>
+	[PublishedContentModel("fADAboutChef")]
+	public partial class FAdaboutChef : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fADAboutChef";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FAdaboutChef(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FAdaboutChef, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Display Name
+		///</summary>
+		[ImplementPropertyType("displayName")]
+		public string DisplayName
+		{
+			get { return this.GetPropertyValue<string>("displayName"); }
+		}
+
+		///<summary>
+		/// Person Summary
+		///</summary>
+		[ImplementPropertyType("personSummary")]
+		public IHtmlString PersonSummary
+		{
+			get { return this.GetPropertyValue<IHtmlString>("personSummary"); }
+		}
+
+		///<summary>
+		/// Photo
+		///</summary>
+		[ImplementPropertyType("photo")]
+		public IPublishedContent Photo
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("photo"); }
 		}
 	}
 

@@ -183,9 +183,9 @@ a.btn.m1 {
 .center {
 	text-align: center;
 }
-.wrapper, .extra_wrapper {
+/*.wrapper, .extra_wrapper {
 	overflow: hidden;
-}
+}*/
 .clear {
 	float: none !important;
 	clear: both;
@@ -199,10 +199,10 @@ a.btn.m1 {
 	color: #e1837f;
 }
 
-.hor_separator {
+/*.hor_separator {
 	background: url(../images/hor_separator.png) 0 bottom no-repeat;
 	height: 40px;
-}
+}*/
 /*header*/
 
 header {
@@ -253,7 +253,7 @@ header h1 a img {
 	color: #79302b;
 	margin-bottom: 17px;
 }
-.content.page1 {
+/*.content.page1 {
 	padding-top: 50px;
 	background: url(../images/hor_separator.png) center 50px no-repeat;
 }
@@ -263,27 +263,27 @@ header h1 a img {
 	padding-top: 43px;
 	margin-bottom: 19px;
 	color: #5D0400;
-}
+}*/
 
-.page1_block img {
+/*.page1_block img {
 	float: left;
 	margin-top: 2px;
 	margin-right: 24px;
-}
+}*/
 
-.car_wrap {
+/*.car_wrap {
 	position: relative;
 	margin: 0 -10px;
 	overflow: hidden;
-}
+}*/
 
-.content.page1 .car_wrap h2 {
+/*.content.page1 .car_wrap h2 {
 	padding-left: 10px;
 	padding-top: 23px;
 	padding-bottom: 3px;
-}
+}*/
 
-.carousel1 {
+/*.carousel1 {
 	height: 249px;
 }
 
@@ -324,9 +324,9 @@ header h1 a img {
  -o-box-sizing: border-box;
  box-sizing: border-box;
  margin-bottom: 19px;
-}
+}*/
 
-.prev {
+/*.prev {
 	background: url(../images/prevnext.png) 0 bottom no-repeat;
 	display: block;
 	position: absolute;
@@ -354,7 +354,7 @@ header h1 a img {
 
 .next:hover {
 	background-position: right 0;
-}
+}*/
 
 .bottom_block {
 	background: url(../images/hor_separator.png) center 38px no-repeat;
@@ -429,7 +429,7 @@ header h1 a img {
 }
 
 
-.testimo li img {
+/*.testimo li img {
 	float: left;
 	margin-top: -1px;
 	margin-right: 20px;
@@ -452,7 +452,7 @@ header h1 a img {
 	line-height: 22.9px;
 	margin-bottom: 6px;
 	padding-top: 10px;
-}
+}*/
 
 
 .prev1 {
@@ -484,14 +484,14 @@ header h1 a img {
 }
 
 
-.hor_separator.hor1 {
+/*.hor_separator.hor1 {
 margin-top: 13px;
-}
+}*/
 
-.content h2.head1 {
+/*.content h2.head1 {
 	padding-top: 28px;
 	font-size: 25px;
-}
+}*/
 
 .content h2.head2 {
 	font-size: 25px;

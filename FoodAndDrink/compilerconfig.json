@@ -1,7 +1,37 @@
 ﻿[
   {
+    "outputFile": "Assets/css/fad-common.css",
+    "inputFile": "less/fad-common.less",
+    "minify": {
+      "enabled": false
+    },
+    "includeInProject": true,
+    "sourceMap": true,
+    "options": { "relativeUrls": false }
+  },
+  {
     "outputFile": "Assets/css/layout.css",
     "inputFile": "less/layout/layout.less",
+    "minify": {
+      "enabled": false
+    },
+    "includeInProject": true,
+    "sourceMap": true,
+    "options": { "relativeUrls": false }
+  },
+  {
+    "outputFile": "Assets/css/home.css",
+    "inputFile": "less/home/home.less",
+    "minify": {
+      "enabled": false
+    },
+    "includeInProject": true,
+    "sourceMap": true,
+    "options": { "relativeUrls": false }
+  },
+  {
+    "outputFile": "Assets/css/about-us.css",
+    "inputFile": "less/about-us/about-us.less",
     "minify": {
       "enabled": false
     },
