@@ -1,0 +1,109 @@
+﻿@toolbar-button-size: 24px;
+@wrapper-border: 1px dashed #aaa;
+@wrapper-margin: 10px;
+
+/* RESET rules */
+
+.ql-editor {
+    padding: 0;
+
+    p {
+        margin-bottom: 20px;
+    }
+}
+
+.ql-toolbar {
+    button {
+        margin: 0;
+    }
+}
+
+.editor-pen {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    z-index: -1;
+    background: #fff;
+    padding: 3px 2px;
+
+    &.on {
+        z-index: 1000;
+    }
+
+    &:hover {
+        opacity: 1 !important;
+    }
+}
+
+
+.inline-richtext-editor {
+    position: relative;
+
+    i {
+        font-size: @toolbar-button-size;
+        color: #000;
+        margin: 0 5px;
+        cursor: pointer;
+
+        &.inverse {
+            color: #fff;
+        }
+    }
+
+    .editor-wrapper {
+        position: absolute;
+        top: -@wrapper-margin;
+        left: -@wrapper-margin;
+        right: -@wrapper-margin;
+        bottom: -@wrapper-margin;
+
+        &.on {
+            border: @wrapper-border;
+            background: #fff;
+
+            &.gray-bg {
+                background-color:gray;
+            }
+        }
+
+        .editor-toolbar {
+            position: absolute;
+            right: -1px;
+            left: -1px;
+            top: -@toolbar-button-size - 2;
+            background: #fff;
+            border: @wrapper-border;
+            border-bottom: 0;
+            transition: all linear 0.25s;
+
+            &.error, &.success {
+                color: #fff;
+
+                i {
+                    color: #fff;
+                }
+            }
+
+            &.error {
+                background: @main-red;
+            }
+
+            &.success {
+                background: #00ad04;
+            }
+
+            .editor-message {
+                font-size: 0.75em;
+                padding-left: 10px;
+            }
+        }
+    }
+
+    &:hover {
+        .editor-pen.on {
+            display: block;
+            opacity: 0.2;
+        }
+    }
+}

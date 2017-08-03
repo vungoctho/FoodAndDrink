@@ -1,0 +1,111 @@
+﻿@import "_mixins.less";
+
+#fad-footer {
+
+    #fad-footer-full {
+        position: relative;
+        background: @main-blue;
+        color: #fff;
+        font-size: 14px;
+        height: @footer-height;
+        z-index: 0;
+
+        .overlay {
+            background: url('/Assets/images/triangles-footer.png') repeat-x;
+            opacity: @overlay-triangle-fade;
+            position: absolute;
+            top: -12px;
+            left: -2px;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        label {
+            .footer-label();
+            cursor: default;
+
+            a {
+                .footer-label();
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .top-section {
+            height: 274px;
+            border-bottom: 1px solid #61a4c0;
+            padding: 50px 0;
+
+            .logo {
+                width: 118px;
+                height: 104px;
+            }
+
+            .sub-section {
+                span, p {
+                    display: block;
+                    color: @hr-colour;
+                    line-height: 1.2em;
+                }
+
+                a:hover {
+                    text-decoration: underline;
+                    color: #fff;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .bottom-section {
+            padding-top: 35px;
+
+            .brand {
+                float: left;
+            }
+
+            .menu {
+                float: right;
+
+                ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    min-width: 400px;
+
+                    li {
+                        a {
+                            .footer-link();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #fad-footer-compact {
+        height: @nav-compact-height;
+        background: @main-gray-light;
+        padding-top: 11px;
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            float: left !important;
+
+            li {
+                float: left;
+
+                a {
+                    .footer-link();
+                }
+            }
+        }
+    }
+}

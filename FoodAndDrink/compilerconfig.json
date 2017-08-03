@@ -1,0 +1,12 @@
+﻿[
+  {
+    "outputFile": "Assets/css/layout.css",
+    "inputFile": "less/layout/layout.less",
+    "minify": {
+      "enabled": false
+    },
+    "includeInProject": true,
+    "sourceMap": true,
+    "options": { "relativeUrls": false }
+  }
+]

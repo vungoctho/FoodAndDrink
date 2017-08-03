@@ -1,0 +1,31 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@{
+    var menus = CurrentPage.Site().Children().Where("menuShow == true");
+    var currentUrl = Model.Content.Url;    
+}
+
+<section class="top-bar-section">
+    <ul class="right">
+        <li class="@(currentUrl == @"/" ? "current": "")">
+            <a href="/">Home</a>
+        </li>
+        @foreach (var item in menus)
+        {
+            var text = string.IsNullOrEmpty(item.menuText) ? item.Name : item.menuText;
+            var activeClass = (item.Url == currentUrl) ? "current" : "";
+            <li class="@activeClass">
+                <a href="@item.Url">@text</a>
+            </li>
+        }
+    </ul>
+    @*<nav>
+        <ul class="sf-menu">
+            <li class="current"><a href="index.html">Home</a></li>
+            <li class="with_ul">
+                <a href="index-1.html">About Us</a>
+            </li>
+
+        </ul>
+    </nav>*@
+</section>
