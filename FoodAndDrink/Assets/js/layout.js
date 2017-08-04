@@ -1,9 +1,9 @@
 ﻿$(function () {
     //Init Foundation
-    $(document).foundation();
+    //$(document).foundation();
 
     //Augen helpers
-    //window.Augen = {
-    //    InlineRichtextManager: new InlineRichtextManager()
-    //};
+    window.fad = {
+        InlineRichtextManager: new InlineRichtextManager()
+    };
 });

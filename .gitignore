@@ -78,7 +78,6 @@ ipch/
 *.ncb
 *.opendb
 *.opensdf
-*.sdf
 *.cachefile
 *.VC.db
 
@@ -166,6 +165,8 @@ csx/
 ecf/
 rcf/
 
+# Microsoft Azure ApplicationInsights config file
+ApplicationInsights.config
 # Windows Store app package directory
 AppPackages/
 BundleArtifacts/
@@ -240,3 +241,8 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# UMBRACO #
+FoodAndDrink/App_Data/**/*
+!FoodAndDrink/App_Data/*.sdf
+!FoodAndDrink/App_Data/packages/installed/installedPackages.config		   

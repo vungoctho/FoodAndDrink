@@ -1,0 +1,32 @@
+﻿@model FoodAndDrink.Models.InlineRichtextEditor
+@{
+    var isEditor = false;
+    if (UmbracoUserHelper.Current.User != null)
+    {
+        isEditor = UmbracoUserHelper.Current.User.IsEditor();
+        
+    }
+}
+
+@if (isEditor)
+{
+    <div class="inline-richtext-editor" data-editor-id="@Model.EditorId" data-node="@Model.NodeId" data-prop="@Model.PropertyAlias" data-api="@Model.UpdateUrl" data-custom-wrapper-class="@Model.CustomWrapperClass">
+        <div class="editor-pen on">
+            <i class="fi-page-edit"></i>
+        </div>
+        <div class="editor-wrapper">
+            <div class="editor-toolbar hide">
+                <div class="editor-message left"></div>
+                <i class="fi-x right cancel"></i>
+                <i class="fi-save right save"></i>
+            </div>
+        </div>
+        <div class="editor">
+            @Html.Raw(Model.Html)
+        </div>
+    </div>
+}
+else
+{
+    @Html.Raw(Model.Html)
+}

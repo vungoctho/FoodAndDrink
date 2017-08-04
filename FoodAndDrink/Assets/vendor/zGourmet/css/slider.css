@@ -1,7 +1,7 @@
 
 
 /*Slider*/
-.slider-relative {
+/*.slider-relative {
 	position:relative;
 	overflow:hidden;
 	margin: 0 auto;
@@ -89,4 +89,4 @@ z-index: 999;
 
 .pagination li a:hover, .pagination li.current a {
 	background-position: 0 0;
-}
+}*/

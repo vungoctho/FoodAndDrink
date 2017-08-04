@@ -9,11 +9,13 @@
     <title>@ViewBag.Title</title>
     <link href="http://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet" type="text/css">
     <link href="/favicon.ico?v=1" rel="shortcut icon" type="image/x-icon">
-    @*<link rel="stylesheet" href="~/Assets/vendor/normalize.css">
+    
+    <link rel="stylesheet" href="~/Assets/vendor/normalize.css">
     <link rel="stylesheet" href="~/Assets/vendor/foundation/foundation.css">
     <link rel="stylesheet" href="~/Assets/vendor/foundation/foundation-icons.css">
+    <link rel="stylesheet" href="~/Assets/vendor/quill/quill.bubble.css">
     <link rel="stylesheet" href="~/Assets/vendor/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="~/Assets/vendor/quill/quill.bubble.css">*@
+        
     @Html.RenderCssHere()
     @RenderSection("styles", false)
     @*<script src="~/Assets/vendor/Scripts/modernizr.js"></script>
@@ -36,10 +38,10 @@
     <script src="~/Assets/vendor/zGourmet/js/tms-0.4.1.js"></script>
     <script src="~/Assets/vendor/zGourmet/js/css3-mediaqueries.js"></script>
 
-    @*@{
+    @{
         Html.RequiresJs("~/Assets/vendor/Scripts/quill.min.js")
             .RequiresJs("~/Assets/js/inline-richtext-manager.js");
-    }*@
+    }
 </head>
 <body>
     @RenderBody()

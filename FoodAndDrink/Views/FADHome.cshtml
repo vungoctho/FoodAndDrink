@@ -34,8 +34,10 @@
                         <div class="about_block col1">
                             <div class="col-1-3"><img src="~/Assets/vendor/zGourmet/images/welcome_img.png" alt=""></div>
                             <div class="col-2-3">
-                                <div class="extra_wrapper">
-                                    @Html.Raw(homePage.AboutFAD)
+                                <div>
+                                    @Html.Partial("_InlineRichtextEditor", new FoodAndDrink.Models.InlineRichtextEditor { Html = homePage.AboutFAD, NodeId = homePage.Id, PropertyAlias = "aboutFAD" })
+                                    
+                                    @*@Html.Raw(homePage.AboutFAD)*@
                                 </div>
                             </div>
                             <div class="clear"></div>

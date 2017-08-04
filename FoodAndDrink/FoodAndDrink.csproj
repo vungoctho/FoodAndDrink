@@ -47,6 +47,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=3.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.3.4.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -335,6 +347,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.cs" />
+    <Compile Include="Controllers\API\Base\AuthorisedApiControllerBase.cs" />
+    <Compile Include="Controllers\API\Base\IResultApiController.cs" />
+    <Compile Include="Controllers\API\Base\UmbracoAuthorizeForAttribute.cs" />
+    <Compile Include="Controllers\API\ManageContentController.cs" />
+    <Compile Include="Helpers\ApiResultHelper.cs" />
+    <Compile Include="Models\ApiResult.cs" />
+    <Compile Include="Models\InlineRichtextEditor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -368,6 +388,7 @@
     <Content Include="Assets\images\WorkAtAugen\paper-clip-small.png" />
     <Content Include="Assets\images\WorkAtAugen\red-pin-small.png" />
     <Content Include="Assets\js\home.js" />
+    <Content Include="Assets\js\inline-richtext-manager.js" />
     <Content Include="Assets\js\layout.js" />
     <Content Include="Assets\vendor\font-awesome\css\font-awesome.css" />
     <Content Include="Assets\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -527,6 +548,21 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="less\fad-common.less" />
+    <Content Include="Media\1001\logo.png" />
+    <Content Include="Media\1002\slide.jpg" />
+    <Content Include="Media\1003\slide1.jpg" />
+    <Content Include="Media\1004\slide2.jpg" />
+    <Content Include="Media\1005\page1_img1.jpg" />
+    <Content Include="Media\1006\page1_img2.jpg" />
+    <Content Include="Media\1007\page1_img3.jpg" />
+    <Content Include="Media\1008\page1_img4.jpg" />
+    <Content Include="Media\1009\page3_img3.jpg" />
+    <Content Include="Media\1010\page3_img5.jpg" />
+    <Content Include="Media\1011\page2_img3.jpg" />
+    <Content Include="Media\1012\page2_img4.jpg" />
+    <Content Include="Media\1013\page2_img5.jpg" />
+    <Content Include="Media\1014\page2_img6.jpg" />
+    <Content Include="Media\1015\page2_img1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="config\imageprocessor\security.config" />
@@ -574,6 +610,8 @@
     </None>
     <Content Include="less\_controls\_inline-richtext.less" />
     <Content Include="less\about-us\about-us.less" />
+    <None Include="Properties\PublishProfiles\File Sys.pubxml" />
+    <None Include="Properties\PublishProfiles\FoodAndDrink - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -609,17 +647,15 @@
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\MasterFAD.cshtml" />
     <Content Include="Views\Partials\_MenuNav.cshtml" />
+    <Content Include="Views\Shared\_InlineRichtextEditor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
-    <Folder Include="Controllers\API\" />
     <Folder Include="Controllers\BackOffice\" />
     <Folder Include="Controllers\Hijacking\" />
     <Folder Include="Controllers\Surface\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Home\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -634,6 +670,14 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FoodAndDrink.Const\FoodAndDrink.Const.csproj">
+      <Project>{f6cef2c2-222f-48da-955a-c7c5e1424337}</Project>
+      <Name>FoodAndDrink.Const</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FoodAndDrink.Helpers\FoodAndDrink.Helpers.csproj">
+      <Project>{865a1126-8208-469a-8f19-e80916db0c7d}</Project>
+      <Name>FoodAndDrink.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FoodAndDrink.NodeModels\FoodAndDrink.NodeModels.csproj">
       <Project>{3b08a00b-b627-4b1b-b4e1-087fb4d9a8b9}</Project>
       <Name>FoodAndDrink.NodeModels</Name>
