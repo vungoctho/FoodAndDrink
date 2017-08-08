@@ -1,0 +1,178 @@
+﻿#fad-menu {
+    .menu {
+        padding-top: 8px;
+
+        h3 {
+            color: #85423f;
+            margin-bottom: 22px;
+        }
+
+        .img_inner {
+            padding: 5px 4px;
+            margin-bottom: 12px;
+        }
+    }
+
+    .wrap_cart {
+        .wrap_cart_sub {
+            background: none repeat scroll 0 0 #FFFFFF;
+            border: 1px solid whitesmoke;
+            border-radius: 8px 8px 8px 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 1, 0.247);
+        }
+
+        .cart_title {
+            border-radius: 5px 5px 0px 0px;
+            background: #699440;
+            color: #FFFFFF;
+            font-size: 18px;
+            text-transform: uppercase;
+            height: 32px;
+            text-align: center;
+            padding-top: 7px;
+            font-weight: 700;
+        }
+
+        .order_notice {
+            padding: 15px;
+
+            p {
+                text-align: center;
+                font-size: 14px;
+                color: #666666;
+                font-style: italic;
+
+                span {
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .break {
+            background-color: #e2827e;
+            height: 2px;
+        }
+
+        .order_list {
+            min-height: 240px;
+            width: 100%;
+            overflow-y: auto;
+
+            .order_item {
+                margin: 3px 0.5%;
+                padding: 0px;
+                color: #333333;
+                border-bottom: dashed 1px #D2D2D2;
+                float: left;
+                width: 99%;
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+
+                &:hover {
+                    background: #f4f4f4;
+                }
+
+                .order_up_down {
+                    width: 180px;
+                    float: right;
+                    text-align: right;
+
+                    .btn_up_down {
+                        width: 45px;
+                        height: 25px;
+                        float: right;
+                        text-align: center;
+
+                        .btn_up, .btn_down {
+                            cursor: pointer;
+                            padding-right: 2px;
+                        }
+                    }
+                }
+
+                .remove_order {
+                    width: 12px;
+                    height: 12px;
+                    float: left;
+                    cursor: pointer;
+                }
+
+                .order_item_content {
+                    margin-bottom: 5px;
+
+                    .order_item_dsc_price {
+                        width: 100%;
+
+                        .order_item_dsc {
+                            font-size: 12px;
+                            line-height: 14px;
+                            padding-left: 5px;
+                            text-align: left;
+                            display: inline-block;
+                        }
+
+                        .order_item_price {
+                            text-align: right;
+                            font-size: 14px;
+                            line-height: 14px;
+                            color: #e2827e;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+
+        .delivery {
+            height: 20px;
+            padding: 2px 5px 0 5px;
+        }
+
+
+        .delivery_left, .delivery_right {
+            font-size: 14px;
+            font-weight: 400;
+            font-style: normal;
+            color: #333333;
+        }
+
+        .total {
+            background: #699440;
+            height: 32px;
+            padding: 5px;
+        }
+
+        .total_left, .total_right {
+            font-size: 18px;
+            font-family: Roboto Condensed, utm_swiss_b;
+            font-weight: 400;
+            font-style: normal;
+            color: #FFFFFF;
+        }
+
+        .total_right {
+            float: right;
+        }
+
+        .delivery_detail {
+            color: #1a1a1a;
+            padding: 5px;
+        }
+
+        .delivery_detail * {
+            font-size: 12px;
+            font-style: italic;
+            line-height: 14px;
+        }
+
+        .check_out {
+            text-align: center;
+
+            a {
+                text-transform: uppercase;
+                margin-bottom: 8px;
+                margin-top: 8px;
+            }
+        }
+    }
+}

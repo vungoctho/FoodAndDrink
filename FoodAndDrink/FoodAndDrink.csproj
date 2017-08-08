@@ -362,12 +362,14 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
     <Content Include="Assets\css\about-us.css" />
+    <Content Include="Assets\css\dialog.css" />
     <Content Include="Assets\css\fad-common.css" />
     <Content Include="Assets\css\home.css" />
     <Content Include="Assets\css\layout.css" />
     <Content Include="Assets\css\layout.min.css">
       <DependentUpon>layout.css</DependentUpon>
     </Content>
+    <Content Include="Assets\css\menu.css" />
     <Content Include="Assets\images\augen-logo-vertical.png" />
     <Content Include="Assets\images\augen-logo.png" />
     <Content Include="Assets\images\favicon.ico" />
@@ -390,6 +392,7 @@
     <Content Include="Assets\js\home.js" />
     <Content Include="Assets\js\inline-richtext-manager.js" />
     <Content Include="Assets\js\layout.js" />
+    <Content Include="Assets\js\menu.js" />
     <Content Include="Assets\vendor\font-awesome\css\font-awesome.css" />
     <Content Include="Assets\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\vendor\foundation\foundation-icons.css" />
@@ -398,6 +401,7 @@
     <Content Include="Assets\vendor\normalize.css" />
     <Content Include="Assets\vendor\quill\quill.bubble.css" />
     <Content Include="Assets\vendor\quill\quill.snow.css" />
+    <Content Include="Assets\vendor\Scripts\angular-sanitize.min.js" />
     <Content Include="Assets\vendor\Scripts\angular.js" />
     <Content Include="Assets\vendor\Scripts\foundation.js" />
     <Content Include="Assets\vendor\Scripts\foundation.min.js" />
@@ -418,6 +422,7 @@
     <Content Include="Assets\vendor\slick\ajax-loader.gif" />
     <Content Include="Assets\vendor\slick\fonts\slick.svg" />
     <Content Include="Assets\vendor\slick\slick.css" />
+    <Content Include="Assets\vendor\underscore\underscore-min.js" />
     <Content Include="Assets\vendor\zGourmet\css\form.css" />
     <Content Include="Assets\vendor\zGourmet\css\grid.css" />
     <Content Include="Assets\vendor\zGourmet\css\ie.css" />
@@ -547,7 +552,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Assets\vendor\underscore\underscore-min.map" />
     <None Include="less\fad-common.less" />
+    <None Include="less\menu\menu.less" />
+    <None Include="less\_dialog\_dialog.less" />
     <Content Include="Media\1001\logo.png" />
     <Content Include="Media\1002\slide.jpg" />
     <Content Include="Media\1003\slide1.jpg" />
@@ -624,7 +632,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -648,6 +658,7 @@
     <Content Include="Views\MasterFAD.cshtml" />
     <Content Include="Views\Partials\_MenuNav.cshtml" />
     <Content Include="Views\Shared\_InlineRichtextEditor.cshtml" />
+    <Content Include="Views\FADMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

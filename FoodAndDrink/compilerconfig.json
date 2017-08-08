@@ -38,5 +38,25 @@
     "includeInProject": true,
     "sourceMap": true,
     "options": { "relativeUrls": false }
+  },
+  {
+    "outputFile": "Assets/css/menu.css",
+    "inputFile": "less/menu/menu.less",
+    "minify": {
+      "enabled": false
+    },
+    "includeInProject": true,
+    "sourceMap": true,
+    "options": { "relativeUrls": false }
+  },
+  {
+    "outputFile": "Assets/css/dialog.css",
+    "inputFile": "less/_dialog/_dialog.less",
+    "minify": {
+      "enabled": false
+    },
+    "includeInProject": true,
+    "sourceMap": true,
+    "options": { "relativeUrls": false }
   }
 ]

@@ -271,6 +271,8 @@
     <Compile Include="AboutChef.cs" />
     <Compile Include="AboutUsPage.cs" />
     <Compile Include="HomeHighlightFood.cs" />
+    <Compile Include="MenuFood.cs" />
+    <Compile Include="MenuPage.cs" />
     <Compile Include="HomePage.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

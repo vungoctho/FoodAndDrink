@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "e2328a4b0351c4ab")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "b20453484071a4d6")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -456,6 +456,192 @@ namespace Umbraco.Web.PublishedContentModels
 		public IPublishedContent Photo
 		{
 			get { return this.GetPropertyValue<IPublishedContent>("photo"); }
+		}
+	}
+
+	/// <summary>FAD Page - Menu</summary>
+	[PublishedContentModel("fADPageMenu")]
+	public partial class FAdpageMenu : PublishedContentModel, IFAdpage
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fADPageMenu";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FAdpageMenu(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FAdpageMenu, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Description
+		///</summary>
+		[ImplementPropertyType("description")]
+		public IHtmlString Description
+		{
+			get { return this.GetPropertyValue<IHtmlString>("description"); }
+		}
+
+		///<summary>
+		/// Title
+		///</summary>
+		[ImplementPropertyType("title")]
+		public string Title
+		{
+			get { return this.GetPropertyValue<string>("title"); }
+		}
+
+		///<summary>
+		/// Footer Show
+		///</summary>
+		[ImplementPropertyType("footerShow")]
+		public bool FooterShow
+		{
+			get { return Umbraco.Web.PublishedContentModels.FAdpage.GetFooterShow(this); }
+		}
+
+		///<summary>
+		/// Footer Text
+		///</summary>
+		[ImplementPropertyType("footerText")]
+		public string FooterText
+		{
+			get { return Umbraco.Web.PublishedContentModels.FAdpage.GetFooterText(this); }
+		}
+
+		///<summary>
+		/// Menu Show
+		///</summary>
+		[ImplementPropertyType("menuShow")]
+		public bool MenuShow
+		{
+			get { return Umbraco.Web.PublishedContentModels.FAdpage.GetMenuShow(this); }
+		}
+
+		///<summary>
+		/// Menu Text
+		///</summary>
+		[ImplementPropertyType("menuText")]
+		public string MenuText
+		{
+			get { return Umbraco.Web.PublishedContentModels.FAdpage.GetMenuText(this); }
+		}
+	}
+
+	/// <summary>FAD Menu Folder</summary>
+	[PublishedContentModel("fADMenuFolder")]
+	public partial class FAdmenuFolder : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fADMenuFolder";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FAdmenuFolder(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FAdmenuFolder, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>FAD Menu Food</summary>
+	[PublishedContentModel("fADMenuFood")]
+	public partial class FAdmenuFood : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fADMenuFood";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FAdmenuFood(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FAdmenuFood, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Description: Enter the receipt, ingredient of food
+		///</summary>
+		[ImplementPropertyType("description")]
+		public IHtmlString Description
+		{
+			get { return this.GetPropertyValue<IHtmlString>("description"); }
+		}
+
+		///<summary>
+		/// Display Name
+		///</summary>
+		[ImplementPropertyType("displayName")]
+		public string DisplayName
+		{
+			get { return this.GetPropertyValue<string>("displayName"); }
+		}
+
+		///<summary>
+		/// From Date
+		///</summary>
+		[ImplementPropertyType("fromDate")]
+		public DateTime FromDate
+		{
+			get { return this.GetPropertyValue<DateTime>("fromDate"); }
+		}
+
+		///<summary>
+		/// Image
+		///</summary>
+		[ImplementPropertyType("image")]
+		public IPublishedContent Image
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("image"); }
+		}
+
+		///<summary>
+		/// Price
+		///</summary>
+		[ImplementPropertyType("price")]
+		public int Price
+		{
+			get { return this.GetPropertyValue<int>("price"); }
+		}
+
+		///<summary>
+		/// To Date
+		///</summary>
+		[ImplementPropertyType("toDate")]
+		public DateTime ToDate
+		{
+			get { return this.GetPropertyValue<DateTime>("toDate"); }
 		}
 	}
 

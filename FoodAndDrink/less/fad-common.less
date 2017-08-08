@@ -1,1 +1,48 @@
 ﻿@import "_controls/_inline-richtext.less";
+
+.content {
+    min-height: 676px;
+
+    h2 {
+        padding-top: 36px;
+        font-size: 24px;
+        color: #79302b;
+        margin-bottom: 18px;
+    }
+}
+
+p {
+    margin-bottom: 18px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+
+    &:hover {
+        color: #699440;
+    }
+
+    &.btn {
+        font-size: 12px;
+        display: inline-block;
+        background: #e2827e;
+        padding: 5px 14px 4px;
+        border-radius: 4px;
+        margin-top: 17px;
+        color: #fff;
+
+        &:hover {
+            background: #699440;
+        }
+    }
+}
+
+.hor_separator {
+    background: url(/Assets/vendor/zGourmet/images/hor_separator.png) 0 bottom no-repeat;
+    height: 40px;
+}

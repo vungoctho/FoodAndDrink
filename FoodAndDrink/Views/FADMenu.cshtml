@@ -1,0 +1,120 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ClientDependency.Core.Mvc
+@{
+    Layout = "MasterFAD.cshtml";
+    var menuPageNode = CurrentPage.Site().Children("fADPageMenu").First();
+    var menuPage = ((IPublishedContent)menuPageNode).As<MenuPage>();
+
+    Html.RequiresCss("~/Assets/css/menu.css")
+        .RequiresCss("~/Assets/css/dialog.css");
+    Html.RequiresJs("~/Assets/js/menu.js");
+}
+
+<div id="fad-menu" ng-app="fad.menu" ng-controller="fadMenuController">
+    <div class="content">
+        <div class="zerogrid">
+            <div class="row">
+                <div class="col-3-6">
+                    <div class="wrap-col">
+                        <h2>@menuPage.Title</h2>
+                        @Html.Raw(menuPage.Description)
+                        <div class="menu">
+                            <div class="row">
+                                @foreach (var item in menuPage.Foods)
+                                {
+                                    <div class="col-1-2">
+                                        <div class="wrap-col">
+                                            <img src="@item.Image.Url" class="img_inner" ng-click="showForm($event, '@item.Id', '@item.Image.Url', '@item.DisplayName', '@Html.Raw(item.Description)', '@item.Price' )">
+                                            <h3>@item.DisplayName</h3>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div id="foodChooseForm" class="reveal-modal small food-choose-form" data-reveal>
+                                    <div>
+                                        <div class="row">
+                                            <div class="small-12 medium-4 columns"><img ng-src="{{selectedFood.imageUrl}}"></div>
+                                            <div class="small-12 medium-8 columns">
+                                                <div class="food-name">
+                                                    {{selectedFood.displayName}}
+                                                </div>
+                                                <div class="food-description">
+                                                    <p ng-bind-html="selectedFood.description"></p>
+                                                </div>
+                                                <div class="food-price">
+                                                    <span>Price : </span>${{selectedFood.price}}
+                                                </div>
+                                                <div class="btn-choose">
+                                                    <a href="#" class="btn" ng-click="chooseFood(selectedFood)">Choose</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a class="close-reveal-modal">&#215;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+                <div class="col-1-6"><div class="wrap-col"><!--empty--></div></div>
+
+                <div class="col-2-6">
+                    <div class="wrap-col">
+                        <div class="cart_container">
+                            <div class="wrap_cart">
+                                <div class="wrap_cart_sub">
+                                    <div class="cart_title">Your Order<span id="notificationsLoader"></span></div>
+                                    <div class="order_notice">
+                                        <p>We offer to order dishes online</p>
+                                        <p>From <span>08:00</span> To <span>11:00</span></p>
+                                    </div>
+                                    <div class="break"></div>
+                                    <div class="order_list">
+                                        <div class="order_item" ng-repeat="item in orderList track by $index">
+                                            <div class="order_item_remove">
+                                                <div class="remove_order"><i class="fi-x" ng-click="removeOrderItem(item.id)"></i></div>
+                                                <div class="order_up_down">
+                                                    <span>{{item.amount}}</span>
+                                                    <div class="btn_up_down" style="line-height:0">
+                                                        <i class="fi-plus btn_up" ng-click="adjustAmount(item.id, 1)"></i>
+                                                        <i class="fi-minus btn_down" ng-click="adjustAmount(item.id, -1)"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="order_item_content">
+                                                <div class="clear"></div>
+                                                <div class="order_item_dsc_price">
+                                                    <div class="order_item_dsc">
+                                                        {{item.displayName}}
+                                                    </div>
+                                                    <div class="order_item_price">
+                                                        $ {{item.price}}
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="break"></div>
+                                    <div class="delivery">
+                                        <span class="delivery_left">Note:</span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="delivery_detail">
+                                        <div class="clearfix">+ Free shipping</div>
+                                    </div>
+                                    <div class="total"><span class="total_left">Total:</span><span class="total_right">$ {{totalOrderPrice}}</span></div>
+                                    <div class="check_out"><a href="#" class="btn">Checkout</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

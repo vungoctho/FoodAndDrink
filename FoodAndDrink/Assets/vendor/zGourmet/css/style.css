@@ -61,14 +61,14 @@ h3 {
 	line-height: 24px;
 }
 
-p {
+/*p {
 	margin-bottom: 18px;
 }
 
 p.inn1 {
 	padding-top: 2px;
 	margin-bottom: 20px;
-}
+}*/
 
 
 img {
@@ -96,7 +96,7 @@ ul.list.l1 li {
 }
 /*links*/
 
-a {
+/*a {
 	text-decoration: none;
 	color: inherit;
 	outline: none;
@@ -107,9 +107,9 @@ a {
 
 a:hover {
 	color: #699440;
-}
+}*/
 
-a.btn {
+/*a.btn {
 	font-size: 12px;
 	display: inline-block;
 	background: #e2827e;
@@ -122,7 +122,7 @@ a.btn {
 
 a.btn:hover {
 	background: #699440;
-}
+}*/
 
 a.btn.m1 {
 	margin-top: 30px;
@@ -499,7 +499,7 @@ margin-top: 13px;
 	margin-bottom: 20px;
 }
 
-.chefs {
+/*.chefs {
 	padding-top: 7px;
 }
 
@@ -511,9 +511,9 @@ margin-top: 13px;
 	font-size: 12px;
 	padding-top: 8px;
 	margin-bottom: 16px;
-}
+}*/
 
-.menu {
+/*.menu {
 	padding-top: 8px;
 
 }
@@ -526,9 +526,9 @@ margin-top: 13px;
 .menu .img_inner {
 	padding: 5px 4px;
 	margin-bottom: 12px;
-}
+}*/
 
-.news .img_inner{
+/*.news .img_inner{
 	padding: 4px;
 	margin-top: 1px;
 }
@@ -549,7 +549,7 @@ margin-top: 13px;
 
 #newsletter {
 	position: relative;
-}
+}*/
 
 
 
@@ -578,14 +578,14 @@ margin-top: 13px;
  box-sizing: border-box;
 }
 
-#newsletter a.btn {
+/*#newsletter a.btn {
 	float: right;
 	text-transform: capitalize;
 	font-size: 13px;
 	margin-top: 0;
 	padding-top: 6px;
 	padding-bottom: 6px;
-}
+}*/
 
 #newsletter .error, #form1 .empty {		
 	height:0px;

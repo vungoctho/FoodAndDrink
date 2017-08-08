@@ -1,6 +1,6 @@
 ﻿$(function () {
     //Init Foundation
-    //$(document).foundation();
+    $(document).foundation();
 
     //Augen helpers
     window.fad = {
