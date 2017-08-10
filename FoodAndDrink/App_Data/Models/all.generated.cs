@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "b20453484071a4d6")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "704a44f9a869e248")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -461,7 +461,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>FAD Page - Menu</summary>
 	[PublishedContentModel("fADPageMenu")]
-	public partial class FAdpageMenu : PublishedContentModel, IFAdpage
+	public partial class FAdpageMenu : PublishedContentModel, IFAdfolderGenerator, IFAdpage
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "fADPageMenu";
@@ -500,6 +500,24 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Title
 		{
 			get { return this.GetPropertyValue<string>("title"); }
+		}
+
+		///<summary>
+		/// Folder Type Alias
+		///</summary>
+		[ImplementPropertyType("folderTypeAlias")]
+		public string FolderTypeAlias
+		{
+			get { return Umbraco.Web.PublishedContentModels.FAdfolderGenerator.GetFolderTypeAlias(this); }
+		}
+
+		///<summary>
+		/// Generate Folder
+		///</summary>
+		[ImplementPropertyType("generateFolder")]
+		public bool GenerateFolder
+		{
+			get { return Umbraco.Web.PublishedContentModels.FAdfolderGenerator.GetGenerateFolder(this); }
 		}
 
 		///<summary>
@@ -642,6 +660,288 @@ namespace Umbraco.Web.PublishedContentModels
 		public DateTime ToDate
 		{
 			get { return this.GetPropertyValue<DateTime>("toDate"); }
+		}
+	}
+
+	/// <summary>FAD Page - Order List</summary>
+	[PublishedContentModel("fADPageOrderList")]
+	public partial class FAdpageOrderList : PublishedContentModel, IFAdfolderGenerator
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fADPageOrderList";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FAdpageOrderList(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FAdpageOrderList, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Folder Type Alias
+		///</summary>
+		[ImplementPropertyType("folderTypeAlias")]
+		public string FolderTypeAlias
+		{
+			get { return Umbraco.Web.PublishedContentModels.FAdfolderGenerator.GetFolderTypeAlias(this); }
+		}
+
+		///<summary>
+		/// Generate Folder
+		///</summary>
+		[ImplementPropertyType("generateFolder")]
+		public bool GenerateFolder
+		{
+			get { return Umbraco.Web.PublishedContentModels.FAdfolderGenerator.GetGenerateFolder(this); }
+		}
+	}
+
+	/// <summary>FAD Order List Folder</summary>
+	[PublishedContentModel("fADOrderListFolder")]
+	public partial class FAdorderListFolder : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fADOrderListFolder";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FAdorderListFolder(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FAdorderListFolder, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>FAD Order Entry</summary>
+	[PublishedContentModel("fADOrderEntry")]
+	public partial class FAdorderEntry : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fADOrderEntry";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FAdorderEntry(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FAdorderEntry, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Address
+		///</summary>
+		[ImplementPropertyType("address")]
+		public string Address
+		{
+			get { return this.GetPropertyValue<string>("address"); }
+		}
+
+		///<summary>
+		/// City
+		///</summary>
+		[ImplementPropertyType("city")]
+		public string City
+		{
+			get { return this.GetPropertyValue<string>("city"); }
+		}
+
+		///<summary>
+		/// Email
+		///</summary>
+		[ImplementPropertyType("email")]
+		public string Email
+		{
+			get { return this.GetPropertyValue<string>("email"); }
+		}
+
+		///<summary>
+		/// FullName
+		///</summary>
+		[ImplementPropertyType("fullName")]
+		public string FullName
+		{
+			get { return this.GetPropertyValue<string>("fullName"); }
+		}
+
+		///<summary>
+		/// Phone
+		///</summary>
+		[ImplementPropertyType("phone")]
+		public string Phone
+		{
+			get { return this.GetPropertyValue<string>("phone"); }
+		}
+
+		///<summary>
+		/// Submitted Datetime
+		///</summary>
+		[ImplementPropertyType("submittedDatetime")]
+		public DateTime SubmittedDatetime
+		{
+			get { return this.GetPropertyValue<DateTime>("submittedDatetime"); }
+		}
+	}
+
+	// Mixin content Type 1134 with alias "fADFolderGenerator"
+	/// <summary>FAD Folder Generator</summary>
+	public partial interface IFAdfolderGenerator : IPublishedContent
+	{
+		/// <summary>Folder Type Alias</summary>
+		string FolderTypeAlias { get; }
+
+		/// <summary>Generate Folder</summary>
+		bool GenerateFolder { get; }
+	}
+
+	/// <summary>FAD Folder Generator</summary>
+	[PublishedContentModel("fADFolderGenerator")]
+	public partial class FAdfolderGenerator : PublishedContentModel, IFAdfolderGenerator
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fADFolderGenerator";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FAdfolderGenerator(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FAdfolderGenerator, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Folder Type Alias
+		///</summary>
+		[ImplementPropertyType("folderTypeAlias")]
+		public string FolderTypeAlias
+		{
+			get { return GetFolderTypeAlias(this); }
+		}
+
+		/// <summary>Static getter for Folder Type Alias</summary>
+		public static string GetFolderTypeAlias(IFAdfolderGenerator that) { return that.GetPropertyValue<string>("folderTypeAlias"); }
+
+		///<summary>
+		/// Generate Folder
+		///</summary>
+		[ImplementPropertyType("generateFolder")]
+		public bool GenerateFolder
+		{
+			get { return GetGenerateFolder(this); }
+		}
+
+		/// <summary>Static getter for Generate Folder</summary>
+		public static bool GetGenerateFolder(IFAdfolderGenerator that) { return that.GetPropertyValue<bool>("generateFolder"); }
+	}
+
+	/// <summary>FAD Order Detail Entry</summary>
+	[PublishedContentModel("fADOrderDetailEntry")]
+	public partial class FAdorderDetailEntry : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fADOrderDetailEntry";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FAdorderDetailEntry(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FAdorderDetailEntry, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Amount
+		///</summary>
+		[ImplementPropertyType("amount")]
+		public int Amount
+		{
+			get { return this.GetPropertyValue<int>("amount"); }
+		}
+
+		///<summary>
+		/// Food Description
+		///</summary>
+		[ImplementPropertyType("foodDescription")]
+		public IHtmlString FoodDescription
+		{
+			get { return this.GetPropertyValue<IHtmlString>("foodDescription"); }
+		}
+
+		///<summary>
+		/// Food Id
+		///</summary>
+		[ImplementPropertyType("foodId")]
+		public int FoodId
+		{
+			get { return this.GetPropertyValue<int>("foodId"); }
+		}
+
+		///<summary>
+		/// Food Name
+		///</summary>
+		[ImplementPropertyType("foodName")]
+		public string FoodName
+		{
+			get { return this.GetPropertyValue<string>("foodName"); }
+		}
+
+		///<summary>
+		/// Price
+		///</summary>
+		[ImplementPropertyType("price")]
+		public int Price
+		{
+			get { return this.GetPropertyValue<int>("price"); }
 		}
 	}
 

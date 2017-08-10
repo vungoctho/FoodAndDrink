@@ -10,7 +10,7 @@
     Html.RequiresJs("~/Assets/js/menu.js");
 }
 
-<div id="fad-menu" ng-app="fad.menu" ng-controller="fadMenuController">
+<div id="fad-menu" ng-app="fad.menu" ng-controller="fadMenuController">    
     <div class="content">
         <div class="zerogrid">
             <div class="row">
@@ -63,34 +63,34 @@
 
                 <div class="col-2-6">
                     <div class="wrap-col">
-                        <div class="cart_container">
-                            <div class="wrap_cart">
-                                <div class="wrap_cart_sub">
-                                    <div class="cart_title">Your Order<span id="notificationsLoader"></span></div>
-                                    <div class="order_notice">
+                        <div class="cart-container">
+                            <div class="wrap-cart">
+                                <div class="wrap-cart-sub">
+                                    <div class="cart-title">Your Order</div>
+                                    <div class="order-notice">
                                         <p>We offer to order dishes online</p>
                                         <p>From <span>08:00</span> To <span>11:00</span></p>
                                     </div>
                                     <div class="break"></div>
-                                    <div class="order_list">
-                                        <div class="order_item" ng-repeat="item in orderList track by $index">
-                                            <div class="order_item_remove">
-                                                <div class="remove_order"><i class="fi-x" ng-click="removeOrderItem(item.id)"></i></div>
-                                                <div class="order_up_down">
+                                    <div class="order-list">
+                                        <div class="order-item" ng-repeat="item in orderList track by $index">
+                                            <div class="order-item-remove">
+                                                <div class="remove-order"><i class="fi-x" ng-click="removeOrderItem(item.id)"></i></div>
+                                                <div class="order-up-down">
                                                     <span>{{item.amount}}</span>
-                                                    <div class="btn_up_down" style="line-height:0">
-                                                        <i class="fi-plus btn_up" ng-click="adjustAmount(item.id, 1)"></i>
-                                                        <i class="fi-minus btn_down" ng-click="adjustAmount(item.id, -1)"></i>
+                                                    <div class="btn-up-down" style="line-height:0">
+                                                        <i class="fi-plus btn-up" ng-click="adjustAmount(item.id, 1)"></i>
+                                                        <i class="fi-minus btn-down" ng-click="adjustAmount(item.id, -1)"></i>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="order_item_content">
+                                            <div class="order-item-content">
                                                 <div class="clear"></div>
-                                                <div class="order_item_dsc_price">
-                                                    <div class="order_item_dsc">
+                                                <div class="order-item-dsc-price">
+                                                    <div class="order-item-dsc">
                                                         {{item.displayName}}
                                                     </div>
-                                                    <div class="order_item_price">
+                                                    <div class="order-item-price">
                                                         $ {{item.price}}
                                                     </div>
                                                 </div>
@@ -100,19 +100,88 @@
                                     </div>
                                     <div class="break"></div>
                                     <div class="delivery">
-                                        <span class="delivery_left">Note:</span>
+                                        <span class="delivery-left">Note:</span>
                                     </div>
                                     <div class="clearfix"></div>
-                                    <div class="delivery_detail">
+                                    <div class="delivery-detail">
                                         <div class="clearfix">+ Free shipping</div>
                                     </div>
-                                    <div class="total"><span class="total_left">Total:</span><span class="total_right">$ {{totalOrderPrice}}</span></div>
-                                    <div class="check_out"><a href="#" class="btn">Checkout</a></div>
+                                    <div class="total"><span class="total-left">Total:</span><span class="total-right">$ {{totalOrderPrice}}</span></div>
+                                    <div class="check-out">
+                                        <a href="#" class="btn" ng-click="checkout($event)" ng-class="{'disabled': isChecking || orderList.length == 0}">
+                                            <span ng-if="!isChecking">Checkout</span>
+                                            <span ng-if="isChecking">Checking ...</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
+                <div id="checkoutForm" name="checkoutForm" class="reveal-modal small check-out-form" data-reveal ng-form>
+                    <div class="row">
+                        <div class="small-12 medium-2 columns title"> </div>
+                        <div class="small-12 medium-8 columns end head-title">
+                            Delivery Information
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 medium-2 columns title">Full name</div>
+                        <div class="small-12 medium-8 columns">
+                            <input type="text" id="fullName" name="fullName" required ng-model="deliveryInfor.fullName">
+                        </div>
+                        <div class="small-12 medium-2 columns">
+                            <span class="error-message" ng-show="isValidate && checkoutForm.fullName.$error.required">Required</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 medium-2 columns title">Address</div>
+                        <div class="small-12 medium-8 columns end">
+                            <input type="text" id="address" name="address" required ng-model="deliveryInfor.address">
+                        </div>
+                        <div class="small-12 medium-2 columns">
+                            <span class="error-message" ng-show="isValidate && checkoutForm.address.$error.required">Required</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 medium-2 columns title">City</div>
+                        <div class="small-12 medium-8 columns end">
+                            <select id="city" name="city" ng-model="deliveryInfor.city" required>
+                                <option value="HCM" selected="selected">Ho Chi Minh</option>;
+                            </select>
+                        </div>
+                        <div class="small-12 medium-2 columns">
+                            <span class="error-message" ng-show="isValidate && checkoutForm.city.$error.required">Required</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 medium-2 columns title">Phone</div>
+                        <div class="small-12 medium-8 columns end">
+                            <input type="number" id="phoneNumber" name="phoneNumber" required ng-model="deliveryInfor.phoneNumber">
+                        </div>
+                        <div class="small-12 medium-2 columns">
+                            <span class="error-message" ng-show="isValidate && checkoutForm.phoneNumber.$error.required">Required</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 medium-2 columns title">Email</div>
+                        <div class="small-12 medium-8 columns end">
+                            <input type="email" id="email" name="email" required ng-model="deliveryInfor.email">
+                        </div>
+                        <div class="small-12 medium-2 columns">
+                            <span class="error-message" ng-show="isValidate && checkoutForm.email.$error.required">Required</span>
+                            <span class="error-message" ng-show="isValidate && !checkoutForm.email.$error.required && checkoutForm.email.$invalid">Email is invalid</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 medium-2 columns title"> </div>
+                        <div class="small-12 medium-8 columns end">
+                            <a href="#" class="btn" ng-click="sendOrderFood()">Send</a>
+                            <a href="#" class="btn" ng-click="cancelOrderFood()">Cancel</a>
+                        </div>                        
+                    </div>
+                    <a class="close-reveal-modal">&#215;</a>
                 </div>
             </div>
         </div>

@@ -270,6 +270,8 @@
   <ItemGroup>
     <Compile Include="AboutChef.cs" />
     <Compile Include="AboutUsPage.cs" />
+    <Compile Include="FoodOrderDetailEntry.cs" />
+    <Compile Include="FoodOrderEntry.cs" />
     <Compile Include="HomeHighlightFood.cs" />
     <Compile Include="MenuFood.cs" />
     <Compile Include="MenuPage.cs" />

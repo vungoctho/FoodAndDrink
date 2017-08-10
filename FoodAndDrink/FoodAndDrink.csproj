@@ -348,13 +348,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.cs" />
+    <Compile Include="Controllers\API\Base\ApiControllerBase.cs" />
     <Compile Include="Controllers\API\Base\AuthorisedApiControllerBase.cs" />
     <Compile Include="Controllers\API\Base\IResultApiController.cs" />
     <Compile Include="Controllers\API\Base\UmbracoAuthorizeForAttribute.cs" />
+    <Compile Include="Controllers\API\FoodOrderController.cs" />
     <Compile Include="Controllers\API\ManageContentController.cs" />
     <Compile Include="Helpers\ApiResultHelper.cs" />
     <Compile Include="Models\ApiResult.cs" />
     <Compile Include="Models\InlineRichtextEditor.cs" />
+    <Compile Include="Models\OrderPostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -402,6 +405,7 @@
     <Content Include="Assets\vendor\quill\quill.bubble.css" />
     <Content Include="Assets\vendor\quill\quill.snow.css" />
     <Content Include="Assets\vendor\Scripts\angular-sanitize.min.js" />
+    <Content Include="Assets\vendor\Scripts\angular-spinner.min.js" />
     <Content Include="Assets\vendor\Scripts\angular.js" />
     <Content Include="Assets\vendor\Scripts\foundation.js" />
     <Content Include="Assets\vendor\Scripts\foundation.min.js" />

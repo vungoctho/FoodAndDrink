@@ -265,7 +265,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentHelper.cs" />
+    <Compile Include="ContentQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiteMaintenance.cs" />
     <Compile Include="UmbracoUserExtensions.cs" />
     <Compile Include="UmbracoUserHelper.cs" />
   </ItemGroup>

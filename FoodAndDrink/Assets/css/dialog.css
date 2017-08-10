@@ -15,4 +15,16 @@
 #foodChooseForm .btn-choose a {
   margin-top: 0px;
 }
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIl9kaWFsb2cubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxlQUNJO0VBQ0ksbUJBQUE7O0FBRlIsZUFJSTtFQUZJLG1CQUFBO0VBSUEsZUFBQTtFQUNBLGNBQUE7O0FBUFIsZUFVSTtFQVJJLG1CQUFBOztBQUZSLGVBY0k7RUFaSSxtQkFBQTs7QUFGUixlQWtCSSxZQUNJO0VBQ0ksZUFBQSIsImZpbGUiOiJ1bmRlZmluZWQifQ== */
+#checkoutForm .title {
+  text-align: right;
+  padding-top: 10px;
+}
+#checkoutForm .head-title {
+  font-size: 24px;
+  color: #79302b;
+  padding-bottom: 30px;
+}
+#checkoutForm .error-message {
+  color: red;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIl9kaWFsb2cubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxlQUNJO0VBQ0ksbUJBQUE7O0FBRlIsZUFJSTtFQUZJLG1CQUFBO0VBSUEsZUFBQTtFQUNBLGNBQUE7O0FBUFIsZUFVSTtFQVJJLG1CQUFBOztBQUZSLGVBY0k7RUFaSSxtQkFBQTs7QUFGUixlQWtCSSxZQUNJO0VBQ0ksZUFBQTs7QUFLWixhQUNJO0VBQ0ksaUJBQUE7RUFDQSxpQkFBQTs7QUFIUixhQUtJO0VBQ0ksZUFBQTtFQUNBLGNBQUE7RUFDQSxvQkFBQTs7QUFSUixhQVVJO0VBQ0ksVUFBQSIsImZpbGUiOiJ1bmRlZmluZWQifQ== */
