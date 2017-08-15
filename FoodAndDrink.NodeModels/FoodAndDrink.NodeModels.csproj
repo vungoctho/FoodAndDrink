@@ -278,7 +278,10 @@
     <Compile Include="HomePage.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingEmailTemplate.cs" />
+    <Compile Include="SettingsSmtp.cs" />
     <Compile Include="Site.cs" />
+    <Compile Include="SiteSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

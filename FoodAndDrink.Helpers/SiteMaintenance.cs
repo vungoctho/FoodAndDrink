@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FoodAndDrink.NodeModels;
+using Our.Umbraco.Ditto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,40 +26,22 @@ namespace FoodAndDrink.Helpers
         private Lazy<UmbracoHelper> _umbraco;
         private UmbracoHelper Umbraco { get { return _umbraco.Value; } }
 
-        //private readonly Lazy<Settings> _settings;
-        //public Settings Settings { get { return _settings.Value; } }
+        public static IPublishedContent RootNode = UmbracoContext.Current.ContentCache.GetAtRoot().First();
+
+        public static IPublishedContent SettingsNode = RootNode.Children("fADSiteSettings").FirstOrDefault();
 
         private SiteMaintenance()
         {
             _content = new Lazy<IContentService>(() => ApplicationContext.Current.Services.ContentService);
             _umbraco = new Lazy<UmbracoHelper>(() => new UmbracoHelper(UmbracoContext.Current));
-
-
-            //_settings = new Lazy<Settings>(() => ContentHelper.Current.SettingsNode != null ? ContentHelper.Current.SettingsNode.As<Settings>() : new Settings());
         }
 
         //TODO: will call refresh if some common settings has changes
         public void Refresh()
-        {
-            ContentHelper.Current.Refresh();
+        {            
             _instance = new Lazy<SiteMaintenance>(() => new SiteMaintenance(), true);
-        }
-
-        /// <summary>
-        /// Auto generate current year / months folder
-        /// </summary>
-        public void GenerateFolders(params int[] years)
-        {
-            if (years == null) return;
-
-            lock (_lock)
-            {
-                foreach (var year in years)
-                {
-                    LogHelper.Info(this.GetType(), $"Generate Folders {year}");
-                    GenerateFolder(year);
-                }
-            }
+            RootNode = UmbracoContext.Current.ContentCache.GetAtRoot().First();
+            SettingsNode = RootNode.Children("fADSiteSettings").FirstOrDefault();
         }
 
         public IPublishedContent GenerateFolder(IPublishedContent parentNode, int year, int month, int day)
@@ -116,50 +100,6 @@ namespace FoodAndDrink.Helpers
 
             return dayNode;
         }
-
-        private void GenerateFolder(int year)
-        {
-            var currentYear = year.ToString();
-
-            var nodes = ContentHelper.Current.RootNode.Children().Where("generateFolder == true");
-
-            foreach (var node in nodes)
-            {
-                var folderTypeAlias = node.GetPropertyValue<string>("folderTypeAlias");
-
-                var currentYearNode = node.Children(folderTypeAlias).FirstOrDefault(x => x.Name == currentYear);
-                if (currentYearNode == null)
-                {
-                    var result = Content.SaveAndPublishWithStatus(Content.CreateContent(currentYear, node.Id, folderTypeAlias));
-                    currentYearNode = Umbraco.TypedContent(result.Result.ContentItem.Id);
-                }
-
-                var children = currentYearNode.Children(folderTypeAlias);
-
-                //Months
-                var sortChildren = new List<IContent>();
-                for (var i = 1; i <= 12; i++)
-                {
-                    var monthLabel = i.ToString("D2");
-                    var monthNode = children.FirstOrDefault(x => x.Name == monthLabel);
-                    if (monthNode == null)
-                    {
-                        var result = Content.SaveAndPublishWithStatus(Content.CreateContent(monthLabel, currentYearNode.Id, folderTypeAlias));
-                        sortChildren.Add(result.Result.ContentItem);
-                    }
-                    else
-                    {
-                        sortChildren.Add(Content.GetById(monthNode.Id));
-                    }
-                }
-
-                //Sort months
-                Content.Sort(sortChildren);
-
-                //Sort years
-                var yearNodes = node.Children().Concat(new[] { currentYearNode }).OrderByDescending(x => x.Name).Select(x => x.Id);
-                Content.Sort(Content.GetByIds(yearNodes));
-            }
-        }
+        
     }
 }

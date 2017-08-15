@@ -1,9 +1,11 @@
 ﻿using FoodAndDrink.Const;
 using FoodAndDrink.Controllers.API.Base;
 using FoodAndDrink.Helpers;
+using FoodAndDrink.Helpers.Models;
 using FoodAndDrink.Models;
 using FoodAndDrink.NodeModels;
 using Newtonsoft.Json.Linq;
+using Our.Umbraco.Ditto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -34,10 +36,8 @@ namespace FoodAndDrink.Controllers.API
             }
 
             //If we got this far then the object is valid, then we can create the content
-            SaveOrderEntryToUmbraco(orderEntry);
-            //await SendEmail(contactEntry);
-
-
+            var orderId = SaveOrderEntryToUmbraco(orderEntry);
+            SendEmail(orderEntry, orderId);
 
             return ResultOf(() =>
             {
@@ -46,7 +46,7 @@ namespace FoodAndDrink.Controllers.API
             }, "You order has been sent and we will be in touch as soon as we can.");
         }
 
-        private void SaveOrderEntryToUmbraco(FoodOrderEntry orderEntry)
+        private int SaveOrderEntryToUmbraco(FoodOrderEntry orderEntry)
         {
             //check if folder is not exist, create it
             var todayOrderFolder = ContentQuery.GetOrderFolder(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
@@ -65,7 +65,7 @@ namespace FoodAndDrink.Controllers.API
             order.SetValue(OrderEntry.SubmittedDatetime.ToSafeAlias(true), orderEntry.SubmittedDateTime);
             contentService.SaveAndPublishWithStatus(order);
 
-            if (orderEntry.OrderDetails == null || !orderEntry.OrderDetails.Any()) return;
+            if (orderEntry.OrderDetails == null || !orderEntry.OrderDetails.Any()) return order.Id ;
             foreach (var detail in orderEntry.OrderDetails)
             {
                 var orderDetail = contentService.CreateContent(detail.FoodName, order.Id, DocumentTypeAlias.FADOrderDetailEntry);
@@ -76,6 +76,29 @@ namespace FoodAndDrink.Controllers.API
                 orderDetail.SetValue(OrderDetailEntry.Amount.ToSafeAlias(true), detail.Amount);
                 contentService.SaveAndPublishWithStatus(orderDetail);
             }
+            return order.Id;
+        }
+
+        //TODO: Mon 14/8: check & test send email with smtp gmail
+        private void SendEmail(FoodOrderEntry orderEntry, int orderId)
+        {
+            var siteSetting = SiteMaintenance.SettingsNode.As<SiteSettings>(); ;
+            var emailTemplate = siteSetting.EmailTemplate;
+            var bcc = new string[]{ };
+            if (!string.IsNullOrEmpty(emailTemplate.FoodOrderBCC))
+            {
+                bcc = emailTemplate.FoodOrderBCC.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+            }
+            
+            var subject = string.Format(emailTemplate.FoodOrderSubject, orderId);
+            var body = string.Format(emailTemplate.FoodOrderBody, orderEntry.FullName, DateTime.Now, orderEntry.Address);
+            EmailSender.Send(new MailMessageModel()
+            {
+                To = new string[] { orderEntry.Email},
+                Subject = subject,
+                Body = body,
+                Bcc = bcc
+            }, siteSetting.Smtp);
         }
 
     }

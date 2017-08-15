@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FoodAndDrink.NodeModels
 {
-    public class FoodOrderEntry
+    public class FoodOrderEntry : Node
     {
         public string FullName { get; set; }
 

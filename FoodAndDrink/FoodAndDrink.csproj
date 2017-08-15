@@ -354,6 +354,8 @@
     <Compile Include="Controllers\API\Base\UmbracoAuthorizeForAttribute.cs" />
     <Compile Include="Controllers\API\FoodOrderController.cs" />
     <Compile Include="Controllers\API\ManageContentController.cs" />
+    <Compile Include="Custom\ContentHandlerBase.cs" />
+    <Compile Include="Custom\SiteSettingContentEvents.cs" />
     <Compile Include="Helpers\ApiResultHelper.cs" />
     <Compile Include="Models\ApiResult.cs" />
     <Compile Include="Models\InlineRichtextEditor.cs" />
@@ -361,6 +363,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Umbraco.sdf" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
@@ -557,6 +560,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Assets\vendor\underscore\underscore-min.map" />
+    <Content Include="App_Data\umbraco.config" />
     <None Include="less\fad-common.less" />
     <None Include="less\menu\menu.less" />
     <None Include="less\_dialog\_dialog.less" />
@@ -575,6 +579,9 @@
     <Content Include="Media\1013\page2_img5.jpg" />
     <Content Include="Media\1014\page2_img6.jpg" />
     <Content Include="Media\1015\page2_img1.jpg" />
+    <Content Include="Media\1016\page3_img1.jpg" />
+    <Content Include="Media\1017\page3_img2.jpg" />
+    <Content Include="Media\1018\page3_img3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="config\imageprocessor\security.config" />
@@ -665,7 +672,6 @@
     <Content Include="Views\FADMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
     <Folder Include="Controllers\BackOffice\" />
     <Folder Include="Controllers\Hijacking\" />

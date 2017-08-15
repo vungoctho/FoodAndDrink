@@ -158,6 +158,10 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Our.Umbraco.Ditto, Version=0.11.6423.21293, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Our.Umbraco.Ditto.0.11.0\lib\net45\Our.Umbraco.Ditto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
@@ -267,6 +271,8 @@
   <ItemGroup>
     <Compile Include="ContentHelper.cs" />
     <Compile Include="ContentQuery.cs" />
+    <Compile Include="EmailSender.cs" />
+    <Compile Include="Models\MailMessageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SiteMaintenance.cs" />
     <Compile Include="UmbracoUserExtensions.cs" />
@@ -280,6 +286,10 @@
     <ProjectReference Include="..\FoodAndDrink.Const\FoodAndDrink.Const.csproj">
       <Project>{f6cef2c2-222f-48da-955a-c7c5e1424337}</Project>
       <Name>FoodAndDrink.Const</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FoodAndDrink.NodeModels\FoodAndDrink.NodeModels.csproj">
+      <Project>{3B08A00B-B627-4B1B-B4E1-087FB4D9A8B9}</Project>
+      <Name>FoodAndDrink.NodeModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

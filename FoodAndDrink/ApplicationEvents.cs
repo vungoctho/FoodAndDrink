@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using FoodAndDrink.Helpers;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -18,7 +19,8 @@ namespace FoodAndDrink
 
         public void OnApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
-            AutofacDIRegister();            
+            AutofacDIRegister();
+            //SiteMaintenance.Current.GenerateFolders(System.DateTime.Now.Year);
         }
 
         private void AutofacDIRegister()

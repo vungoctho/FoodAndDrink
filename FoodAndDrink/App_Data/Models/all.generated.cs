@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "704a44f9a869e248")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "adf56e4318638cdb")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -942,6 +942,130 @@ namespace Umbraco.Web.PublishedContentModels
 		public int Price
 		{
 			get { return this.GetPropertyValue<int>("price"); }
+		}
+	}
+
+	/// <summary>FAD Site Settings</summary>
+	[PublishedContentModel("fADSiteSettings")]
+	public partial class FAdsiteSettings : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fADSiteSettings";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FAdsiteSettings(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FAdsiteSettings, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// From Email Address
+		///</summary>
+		[ImplementPropertyType("fromEmailAddress")]
+		public string FromEmailAddress
+		{
+			get { return this.GetPropertyValue<string>("fromEmailAddress"); }
+		}
+
+		///<summary>
+		/// SMTP Host
+		///</summary>
+		[ImplementPropertyType("sMTPHost")]
+		public string SMtphost
+		{
+			get { return this.GetPropertyValue<string>("sMTPHost"); }
+		}
+
+		///<summary>
+		/// SMTP Password
+		///</summary>
+		[ImplementPropertyType("sMTPPassword")]
+		public string SMtppassword
+		{
+			get { return this.GetPropertyValue<string>("sMTPPassword"); }
+		}
+
+		///<summary>
+		/// SMTP Port
+		///</summary>
+		[ImplementPropertyType("sMTPPort")]
+		public int SMtpport
+		{
+			get { return this.GetPropertyValue<int>("sMTPPort"); }
+		}
+
+		///<summary>
+		/// SMTP User
+		///</summary>
+		[ImplementPropertyType("sMTPUser")]
+		public string SMtpuser
+		{
+			get { return this.GetPropertyValue<string>("sMTPUser"); }
+		}
+	}
+
+	/// <summary>FAD Email Template</summary>
+	[PublishedContentModel("fADEmailTemplate")]
+	public partial class FAdemailTemplate : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fADEmailTemplate";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FAdemailTemplate(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FAdemailTemplate, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Food Order BCC
+		///</summary>
+		[ImplementPropertyType("foodOrderBCC")]
+		public string FoodOrderBcc
+		{
+			get { return this.GetPropertyValue<string>("foodOrderBCC"); }
+		}
+
+		///<summary>
+		/// Food Order Body
+		///</summary>
+		[ImplementPropertyType("foodOrderBody")]
+		public IHtmlString FoodOrderBody
+		{
+			get { return this.GetPropertyValue<IHtmlString>("foodOrderBody"); }
+		}
+
+		///<summary>
+		/// Food Order Subject
+		///</summary>
+		[ImplementPropertyType("foodOrderSubject")]
+		public string FoodOrderSubject
+		{
+			get { return this.GetPropertyValue<string>("foodOrderSubject"); }
 		}
 	}
 
