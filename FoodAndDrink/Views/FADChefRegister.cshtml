@@ -1,0 +1,74 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ClientDependency.Core.Mvc
+@{
+    Layout = "MasterFAD.cshtml";
+
+    Html.RequiresCss("~/Assets/css/chef-register.css");
+    Html.RequiresJs("~/Assets/js/chef-register.js");
+}
+
+<div id="fad-chef-register" ng-app="fad.chefRegister" ng-controller="fadChefRegisterController">
+    <div class="content">
+        <div class="zerogrid">
+            <div class="row">
+                <div id="chefRegisterForm" name="chefRegisterForm" ng-form>
+                    <div class="row">
+                        <div class="small-12 medium-2 columns title"> </div>
+                        <div class="small-12 medium-8 columns end head-title">
+                            <h2>Chef Registration</h2>
+                        </div>
+                    </div>
+
+                    <fieldset>
+                        <legend>Chef Information</legend>
+
+                        <div class="row">
+                            <div class="small-12 medium-2 columns"><label for="firstName" class="right inline">First Name</label></div>
+                            <div class="small-12 medium-8 columns">
+                                <input type="text" id="firstName" name="firstName" required ng-model="chef.firstName" placeholder="Input your first name">
+                            </div>
+                            <div class="small-12 medium-2 columns">
+                                <span class="error-message" ng-show="isValidate && chefRegisterForm.firstName.$error.required">Required</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="small-12 medium-2 columns"><label for="lastName" class="right inline">Last Name</label></div>
+                            <div class="small-12 medium-8 columns">
+                                <input type="text" id="lastName" name="lastName" required ng-model="chef.lastName" placeholder="Input your last name">
+                            </div>
+                            <div class="small-12 medium-2 columns">
+                                <span class="error-message" ng-show="isValidate && chefRegisterForm.lastName.$error.required">Required</span>
+                            </div>
+                        </div>                
+                        <div class="row">
+                            <div class="small-12 medium-2 columns"><label for="phoneNumber" class="right inline">Phone</label></div>
+                            <div class="small-12 medium-8 columns">
+                                <input type="number" id="phoneNumber" name="phoneNumber" required ng-model="chef.phoneNumber" placeholder="Input your contact phone number">
+                            </div>
+                            <div class="small-12 medium-2 columns">
+                                <span class="error-message" ng-show="isValidate && chefRegisterForm.phoneNumber.$error.required">Required</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="small-12 medium-2 columns title"><label for="email" class="right inline">Email</label></div>
+                            <div class="small-12 medium-8 columns end">
+                                <input type="email" id="email" name="email" required ng-model="chef.email" placeholder="Input your contact email">
+                            </div>
+                            <div class="small-12 medium-2 columns">
+                                <span class="error-message" ng-show="isValidate && chefRegisterForm.email.$error.required">Required</span>
+                                <span class="error-message" ng-show="isValidate && !chefRegisterForm.email.$error.required && chefRegisterForm.email.$invalid">Email is invalid</span>
+                            </div>
+                        </div>
+                    </fieldset>
+                    
+                    <div class="row">
+                        <div class="small-12 medium-2 columns title"> </div>
+                        <div class="small-12 medium-8 columns end">
+                            <button href="#" class="btn" ng-click="chefRegister()">Register</button>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

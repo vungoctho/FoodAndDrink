@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "adf56e4318638cdb")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a30cef02f073fc41")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -1069,6 +1069,94 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 	}
 
+	/// <summary>FAD Page - Chef Register</summary>
+	[PublishedContentModel("fADPageChefRegister")]
+	public partial class FAdpageChefRegister : PublishedContentModel, IFAdpage
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fADPageChefRegister";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FAdpageChefRegister(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FAdpageChefRegister, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Footer Show
+		///</summary>
+		[ImplementPropertyType("footerShow")]
+		public bool FooterShow
+		{
+			get { return Umbraco.Web.PublishedContentModels.FAdpage.GetFooterShow(this); }
+		}
+
+		///<summary>
+		/// Footer Text
+		///</summary>
+		[ImplementPropertyType("footerText")]
+		public string FooterText
+		{
+			get { return Umbraco.Web.PublishedContentModels.FAdpage.GetFooterText(this); }
+		}
+
+		///<summary>
+		/// Menu Show
+		///</summary>
+		[ImplementPropertyType("menuShow")]
+		public bool MenuShow
+		{
+			get { return Umbraco.Web.PublishedContentModels.FAdpage.GetMenuShow(this); }
+		}
+
+		///<summary>
+		/// Menu Text
+		///</summary>
+		[ImplementPropertyType("menuText")]
+		public string MenuText
+		{
+			get { return Umbraco.Web.PublishedContentModels.FAdpage.GetMenuText(this); }
+		}
+	}
+
+	/// <summary>FAD Page - Chef Login</summary>
+	[PublishedContentModel("fADPageChefLogin")]
+	public partial class FAdpageChefLogin : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "fADPageChefLogin";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FAdpageChefLogin(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FAdpageChefLogin, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
 	/// <summary>Folder</summary>
 	[PublishedContentModel("Folder")]
 	public partial class Folder : PublishedContentModel
@@ -1251,6 +1339,51 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Member, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Email
+		///</summary>
+		[ImplementPropertyType("email")]
+		public string Email
+		{
+			get { return this.GetPropertyValue<string>("email"); }
+		}
+
+		///<summary>
+		/// First Name
+		///</summary>
+		[ImplementPropertyType("firstName")]
+		public string FirstName
+		{
+			get { return this.GetPropertyValue<string>("firstName"); }
+		}
+
+		///<summary>
+		/// Last Name
+		///</summary>
+		[ImplementPropertyType("lastName")]
+		public string LastName
+		{
+			get { return this.GetPropertyValue<string>("lastName"); }
+		}
+
+		///<summary>
+		/// Phone
+		///</summary>
+		[ImplementPropertyType("phone")]
+		public string Phone
+		{
+			get { return this.GetPropertyValue<string>("phone"); }
+		}
+
+		///<summary>
+		/// Profile Proto
+		///</summary>
+		[ImplementPropertyType("profileProto")]
+		public IPublishedContent ProfileProto
+		{
+			get { return this.GetPropertyValue<IPublishedContent>("profileProto"); }
 		}
 
 		///<summary>

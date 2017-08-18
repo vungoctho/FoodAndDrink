@@ -42,4 +42,22 @@ namespace FoodAndDrink.Const
         public const string Price = "Price";
         public const string Amount = "Amount";
     }
+
+    public struct BackOfficeMemberTypes
+    {
+        public const string Member = "Member";
+    }
+
+    public struct ChefMemberProfiles
+    {
+        public const string Email = "Email";
+        public const string FirstName = "First Name";
+        public const string LastName = "Last Name";
+        public const string Phone = "Phone";
+    }
+
+    public struct UmbracoGroup
+    {
+        public const string Chef = "Chef";
+    }
 }

@@ -1,0 +1,53 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using Umbraco.Web.Models
+@{
+    Layout = "MasterFAD.cshtml";
+    var loginModel = new LoginModel();
+
+    var postMessage = TempData["PostMessage"] != null ? TempData["PostMessage"] : null;
+}
+
+@* the fun starts here *@
+
+<div id="frmLogin">
+    <div class="content">
+        <div class="medium-offset-3 medium-6" id="mainContent">
+            @using (Html.BeginUmbracoForm<FoodAndDrink.Controllers.Surface.ChefLoginController>("ChefHandleLogin"))
+            {
+                <fieldset>
+                    <legend>Login</legend>
+                    @if (postMessage != null)
+                {
+                        <label class="post-message">@postMessage</label>
+                    }
+                    @Html.ValidationSummary("loginModel", true)
+                    <div>
+                            @Html.TextBoxFor(m => loginModel.Username, new { @placeholder = "User Name", @class = "form-control" })
+                        
+                    </div>
+                    <div>
+                        @Html.ValidationMessageFor(m => loginModel.Username)
+                    </div>
+                    <div>
+                        @Html.PasswordFor(m => loginModel.Password, new { @placeholder = "Password", @class = "form-control" })
+                    </div>
+                    <div>
+                        @Html.ValidationMessageFor(m => loginModel.Password)
+                    </div>
+                    <div >
+                        <div ><button class="btn btn-info">Sign In</button></div>
+                        <div >
+                            <div >
+                                <a href="@ViewBag.ForgotPasswordUrl" class="pull-right">Forgotten Password</a>
+                            </div>
+                            <div >
+                                <a href="@ViewBag.RegistrationUrl" class="pull-right">Not a member? Register here</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+            }
+        </div>
+    </div>
+    </div>

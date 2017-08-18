@@ -58,5 +58,15 @@
     "includeInProject": true,
     "sourceMap": true,
     "options": { "relativeUrls": false }
+  },
+  {
+    "outputFile": "Assets/css/chef-register.css",
+    "inputFile": "less/chef-register/chef-register.less",
+    "minify": {
+      "enabled": false
+    },
+    "includeInProject": true,
+    "sourceMap": true,
+    "options": { "relativeUrls": false }
   }
 ]

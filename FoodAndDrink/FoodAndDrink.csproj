@@ -352,12 +352,15 @@
     <Compile Include="Controllers\API\Base\AuthorisedApiControllerBase.cs" />
     <Compile Include="Controllers\API\Base\IResultApiController.cs" />
     <Compile Include="Controllers\API\Base\UmbracoAuthorizeForAttribute.cs" />
+    <Compile Include="Controllers\API\ChefController.cs" />
     <Compile Include="Controllers\API\FoodOrderController.cs" />
     <Compile Include="Controllers\API\ManageContentController.cs" />
+    <Compile Include="Controllers\Surface\ChefLoginController.cs" />
     <Compile Include="Custom\ContentHandlerBase.cs" />
     <Compile Include="Custom\SiteSettingContentEvents.cs" />
     <Compile Include="Helpers\ApiResultHelper.cs" />
     <Compile Include="Models\ApiResult.cs" />
+    <Compile Include="Models\ChefModel.cs" />
     <Compile Include="Models\InlineRichtextEditor.cs" />
     <Compile Include="Models\OrderPostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -368,6 +371,7 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
     <Content Include="Assets\css\about-us.css" />
+    <Content Include="Assets\css\chef-register.css" />
     <Content Include="Assets\css\dialog.css" />
     <Content Include="Assets\css\fad-common.css" />
     <Content Include="Assets\css\home.css" />
@@ -395,9 +399,11 @@
     <Content Include="Assets\images\triangles.png" />
     <Content Include="Assets\images\WorkAtAugen\paper-clip-small.png" />
     <Content Include="Assets\images\WorkAtAugen\red-pin-small.png" />
+    <Content Include="Assets\js\fad.angular.js" />
     <Content Include="Assets\js\home.js" />
     <Content Include="Assets\js\inline-richtext-manager.js" />
     <Content Include="Assets\js\layout.js" />
+    <Content Include="Assets\js\chef-register.js" />
     <Content Include="Assets\js\menu.js" />
     <Content Include="Assets\vendor\font-awesome\css\font-awesome.css" />
     <Content Include="Assets\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -561,6 +567,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Assets\vendor\underscore\underscore-min.map" />
     <Content Include="App_Data\umbraco.config" />
+    <Content Include="less\chef-register\chef-register.less" />
     <None Include="less\fad-common.less" />
     <None Include="less\menu\menu.less" />
     <None Include="less\_dialog\_dialog.less" />
@@ -670,12 +677,13 @@
     <Content Include="Views\Partials\_MenuNav.cshtml" />
     <Content Include="Views\Shared\_InlineRichtextEditor.cshtml" />
     <Content Include="Views\FADMenu.cshtml" />
+    <Content Include="Views\FADChefRegister.cshtml" />
+    <Content Include="Views\FADChefLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Start\" />
     <Folder Include="Controllers\BackOffice\" />
     <Folder Include="Controllers\Hijacking\" />
-    <Folder Include="Controllers\Surface\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
